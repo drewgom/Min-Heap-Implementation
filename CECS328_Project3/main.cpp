@@ -1,15 +1,20 @@
-//
-//  main.cpp
-//  CECS328_Project3
-//
-//  Created by Andrew Gomez on 11/18/19.
-//  Copyright © 2019 Andrew Gomez. All rights reserved.
-//
+// Name: Andrew Gomez
+// Class: CECS328
+// Project: Project 3
 
 #include <iostream>
+#include "MenuOption.hpp"
+#include "Implementations.hpp"
+#include "Timer.hpp"
+#include "Menu.hpp"
+#include "Heap.hpp"
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+
+using namespace std;
+
+int main() {
+
+    
+    
     return 0;
 }
