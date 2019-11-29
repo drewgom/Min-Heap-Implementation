@@ -21,7 +21,10 @@ public:
     void allocateMoreMemory();
     void flipArray();
     void swapAt(int a, int b);
-    
+    int* getHeapArrayPtr();
+    int getHeapSize();
+    int getArraySize();
+    int getCapacity();
 private:
     int* heap_array;
     int heap_size;

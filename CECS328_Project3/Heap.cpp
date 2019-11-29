@@ -21,6 +21,7 @@ Heap::Heap(int* arr, int size)    {
     array_size = size;
     capacity = size;
     heap_size = 0;
+    buildMinHeap();
 }
 
 // returns the index of the parent
@@ -94,10 +95,14 @@ void Heap::insert(int newElement)   {
     // is still bigger than it's parent, then swap it with its parents
     heap_size++;
     array_size++;
+    
+    cout << "Heap size is " << heap_size << endl;
+    cout << "Array size is " << array_size << endl;
+    
     heap_array[heap_size-1] = newElement;
     int indexOfNew = heap_size-1;
     int indexOfParent = parent(indexOfNew);
-    while(indexOfNew > 0 && heap_array[indexOfNew] < heap_array[indexOfParent])  {
+    while(indexOfNew > 0 && (heap_array[indexOfNew] < heap_array[indexOfParent]))  {
         swapAt(indexOfNew, indexOfParent);
         indexOfNew = indexOfParent;
         indexOfParent = parent(indexOfNew);
@@ -111,16 +116,14 @@ void Heap::pop()    {
     heap_array++;
     heap_size--;
     array_size--;
+    capacity--;
+    buildMinHeap();
 }
 
 
 // displays the heap array
 void Heap::displayHeapArray() {
-    cout << "INDEX: ";
-    for (int i = 1; i <= array_size; i++)    {
-        cout << i << ", ";
-    }
-    cout << endl;
+
     cout << "ARRAY: ";
     for (int i = 0; i < array_size; i++)    {
         cout << heap_array[i] << ", ";
@@ -153,3 +156,9 @@ void Heap::swapAt(int a, int b)   {
     heap_array[a] = swapB;
     heap_array[b] = swapA;
 }
+
+
+int* Heap::getHeapArrayPtr()    {      return heap_array;   }
+int Heap::getHeapSize()         {      return heap_size;    }
+int Heap::getArraySize()        {      return array_size;   }
+int Heap::getCapacity()         {      return capacity;     }
